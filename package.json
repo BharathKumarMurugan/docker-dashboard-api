@@ -1,0 +1,29 @@
+{
+  "name": "docker-dashboard",
+  "version": "1.0.0",
+  "description": "dashboard for docker",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BharathKumarMurugan/docker-dashboard.git"
+  },
+  "keywords": [
+    "docker",
+    "dashboard",
+    "node"
+  ],
+  "author": "Bharath Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BharathKumarMurugan/docker-dashboard/issues"
+  },
+  "homepage": "https://github.com/BharathKumarMurugan/docker-dashboard#readme"
+}
