@@ -7,8 +7,8 @@ const Router = () => {
     router.get('/', (req, res) => {
         res.send('Docker dashboard api');
     });
-    router.get('/info', async (req, res) => {
-        const path = '/containers/json';
+    router.get('/version', async (req, res) => {
+        const path = '/version';
         try {
             const dockerResponse = await dockerCon.getDockerInfo(path);
             res.send(dockerResponse);
