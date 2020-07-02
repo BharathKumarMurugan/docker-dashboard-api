@@ -11,6 +11,7 @@ const Router = () => {
         const path = '/version';
         try {
             const dockerResponse = await dockerCon.getDockerInfo(path);
+            res.send("test run");
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send(error)
