@@ -13,7 +13,7 @@ const Router = () => {
             const dockerResponse = await dockerCon.getDockerInfo(path);
             res.send(dockerResponse);
         } catch (error) {
-            res.status(500).send(error)
+            res.send(error)
         }
     });
     router.get('/info', async (req, res) => {
@@ -22,7 +22,7 @@ const Router = () => {
             const dockerResponse = await dockerCon.getDockerInfo(path);
             res.send(dockerResponse);
         } catch (error) {
-            res.status(500).send(error)
+            res.send(error)
         }
     });
     return router;
