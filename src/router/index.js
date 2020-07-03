@@ -7,7 +7,7 @@ const Router = () => {
     router.get('/', (req, res) => {
         res.send('Docker dashboard api');
     });
-    router.get('/version', async (req, res) => {
+    router.get('/api/version', async (req, res) => {
         const path = '/version';
         try {
             const dockerResponse = await dockerCon.getDockerInfo(path);
@@ -16,8 +16,17 @@ const Router = () => {
             res.send(error)
         }
     });
-    router.get('/info', async (req, res) => {
+    router.get('/api/info', async (req, res) => {
         const path = '/info';
+        try {
+            const dockerResponse = await getDockerInfo(path);
+            res.send(dockerResponse);
+        } catch (error) {
+            res.send(error)
+        }
+    });
+    router.get('/api/containers', async (req, res) => {
+        const path = '/containers/json';
         try {
             const dockerResponse = await getDockerInfo(path);
             res.send(dockerResponse);
