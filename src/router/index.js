@@ -1,5 +1,5 @@
 import express from "express";
-import dockerCon from "../lib/dockerCon";
+import getDockerInfo from "../lib/dockerCon";
 
 const router = express.Router();
 
@@ -10,7 +10,7 @@ const Router = () => {
     router.get('/info', async (req, res) => {
         const path = '/containers/json';
         try {
-            const dockerResponse = await dockerCon.getDockerInfo(path);
+            const dockerResponse = await getDockerInfo(path);
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send(error)
