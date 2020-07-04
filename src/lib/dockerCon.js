@@ -31,7 +31,7 @@ const postDocker = async customApi => {
         return error;
     }
 }
-const dockerResponse = () => {
+const dockerResponse = options => {
     return new Promise((resolve, reject) => {
         const clientRequest = http.request(options, function (data) {
             data.on('data', chunk => {
