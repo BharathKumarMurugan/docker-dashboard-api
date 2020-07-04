@@ -1,6 +1,5 @@
 import express from "express";
-import getDocker from "../lib/dockerCon";
-import postDocker from "../lib/dockerCon";
+import { getDocker, postDocker } from "../lib/dockerCon";
 
 /** Constants */
 const router = express.Router();

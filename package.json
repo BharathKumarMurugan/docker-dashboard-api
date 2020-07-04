@@ -5,8 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build-dev": "webpack --config webpack.dev.js --watch",
-    "start-dev": "node dist/app.js",
-    "start": "nodemon npm run build-dev"
+    "start-dev": "npx nodemon dist/app.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.10.4",
