@@ -55,4 +55,27 @@ router.post('/prune', async (req, res) => {
     }
 });
 
+/** Connect/Disconnect a container from network */
+router.post('/:networkId/:action', async (res, req) => {
+    const networkID = req.body.networkId;
+    const action = req.body.action;
+    const path = "";
+    switch (action) {
+        case 'connect':
+            path = `/networks/${networkID}/connect`;
+            break;
+        case 'disconnect':
+            path = `/networks/${networkID}/disconnect`;
+            break;
+        default:
+            console.log("Something went wrong");
+    }
+    try {
+        const dockerResponse = await docker.postDocker(path);
+        res.send(dockerResponse);
+    } catch (error) {
+        res.status(500).send("Something went wrong");
+    }
+})
+
 export default router;
