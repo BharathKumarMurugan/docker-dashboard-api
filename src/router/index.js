@@ -1,5 +1,5 @@
 import express from "express";
-import { getDocker, postDocker } from "../lib/dockerCon";
+import docker from "../lib/dockerCon";
 
 /** Constants */
 const router = express.Router();
@@ -13,7 +13,7 @@ const Router = () => {
     router.get('/info', async (req, res) => {
         const path = '/info';
         try {
-            const dockerResponse = await getDocker(path);
+            const dockerResponse = await docker.getDocker(path);
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send("Something went wrong");
@@ -24,7 +24,7 @@ const Router = () => {
     router.get('/containers', async (req, res) => {
         const path = '/containers/json';
         try {
-            const dockerResponse = await getDocker(path);
+            const dockerResponse = await docker.getDocker(path);
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send("Something went wrong");
@@ -35,7 +35,7 @@ const Router = () => {
     router.get('/containers', async (req, res) => {
         const path = '/containers/json?all=true';
         try {
-            const dockerResponse = await getDocker(path);
+            const dockerResponse = await docker.getDocker(path);
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send("Something went wrong");
@@ -47,7 +47,7 @@ const Router = () => {
         const containerID = req.params.containerid;
         const path = `/containers/${containerID}/json`;
         try {
-            const dockerResponse = await getDocker(path);
+            const dockerResponse = await docker.getDocker(path);
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send("Something went wrong");
@@ -59,7 +59,7 @@ const Router = () => {
         const containerID = req.body.containerid;
         const path = `/containers/${containerID}/start`;
         try {
-            const dockerResponse = await postDocker(path);
+            const dockerResponse = await docker.postDocker(path);
             res.send(dockerResponse);
         } catch (error) {
             res.send({
@@ -74,7 +74,7 @@ const Router = () => {
         const containerID = req.body.containerid;
         const path = `/containers/${containerID}/stop`;
         try {
-            const dockerResponse = await postDocker(path);
+            const dockerResponse = await docker.postDocker(path);
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send("Something went wrong");            
@@ -86,7 +86,7 @@ const Router = () => {
         const containerID = req.body.containerid;
         const path = `/containers/${containerID}/kill`;
         try {
-            const dockerResponse = await postDocker(path);
+            const dockerResponse = await docker.postDocker(path);
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send("Something went wrong");            
@@ -97,7 +97,7 @@ const Router = () => {
     router.get('/images', async (req, res) => {
         const path = '/images/json';
         try {
-            const dockerResponse = await getDocker(path);
+            const dockerResponse = await docker.getDocker(path);
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send("Something went wrong");
@@ -109,7 +109,7 @@ const Router = () => {
         const imageID = req.params.imageId;
         const path = `/images/${imageID}/json`;
         try {
-            const dockerResponse = await getDocker(path);
+            const dockerResponse = await docker.getDocker(path);
             res.send(dockerResponse);
         } catch (error) {
             res.status(500).send("Something went wrong");
