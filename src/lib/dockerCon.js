@@ -34,6 +34,7 @@ const postDocker = async customApi => {
 const dockerResponse = options => {
     return new Promise((resolve, reject) => {
         const clientRequest = http.request(options, function (data) {
+            console.trace(data);
             data.on('data', chunk => {
                 const res = JSON.parse(chunk + '');
                 resolve(res)

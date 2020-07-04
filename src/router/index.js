@@ -56,7 +56,7 @@ const Router = () => {
 
     /** Start a container */
     router.post('/containers/:containerId/start', async (req, res) => {
-        const containerID = req.body.containerid;
+        const containerID = req.body.containerId;
         const path = `/containers/${containerID}/start`;
         try {
             const dockerResponse = await docker.postDocker(path);
@@ -71,7 +71,7 @@ const Router = () => {
 
     /** Stop a container */
     router.post('/containers/:containerId/stop', async (req, res) => {
-        const containerID = req.body.containerid;
+        const containerID = req.body.containerId;
         const path = `/containers/${containerID}/stop`;
         try {
             const dockerResponse = await docker.postDocker(path);
