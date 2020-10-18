@@ -4,8 +4,8 @@ Dashboard for Docker. It uses the docker socket to conenct with the host machine
 
 ## Installation
 ```console
-$ git clone https://github.com/BharathKumarMurugan/docker-dashboard.git
-$ cd docker-dashboard
+$ git clone https://github.com/BharathKumarMurugan/docker-dashboard-api.git
+$ cd docker-dashboard-api
 $ npm install
 ```
 
